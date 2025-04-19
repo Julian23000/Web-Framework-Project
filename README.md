@@ -1,7 +1,7 @@
 # Web-Framework-Project
 # 🌤️ Weather Dashboard API
 
-**Course Name:** Web Framework Project 
+**Course Name:** Web Framework Project  
 **Project Name:** Weather Dashboard API  
 
 ## 👥 Team Members
