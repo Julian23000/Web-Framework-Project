@@ -5,8 +5,8 @@
 **Project Name:** Weather Dashboard API  
 
 ## 👥 Team Members
-- [Nikhil Verma]
-- [Julian Hack]
+- Nikhil Verma
+- Julian Hack
 
 ## 📝 Project Description
 We will use an open API to get weather data then customize it to our needs. User can retrieve weather information by typing the city name. The application gets realtime data from **OpenWeatherMap API** and formats it into a clean and readable JSON structure.
@@ -22,11 +22,3 @@ The project will also have a **frontpage** to guide user on how to use the API a
 ## 🔗 Links
 - [OpenWeatherMap API](https://openweathermap.org/api)  
 - [Our Kanban Board](<Put your Trello/Planner link here>)
-
-
-
-
-
-## 🔗 Useful Links
-- [OpenWeatherMap API](https://openweathermap.org/api)
-- [Project Kanban Board](<Insert Trello/Planner link here>)
