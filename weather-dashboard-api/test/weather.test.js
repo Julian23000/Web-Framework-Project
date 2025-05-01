@@ -2,7 +2,7 @@ jest.mock('../src/services/weatherService'); // ✅ adjust this path if weatherS
 
 const { fetchWeatherData } = require('../src/services/weatherService');
 const request = require('supertest');
-const app = require('../services/index'); // assuming app.js is in the root
+const app = require('../src/index'); // assuming app.js is in the root
 
 
 describe('GET /weather', () => {
