@@ -1,0 +1,5 @@
+npm install express axios dotenv cors nodemon express-validator
+
+to install all modules
+
+Remember to add env and OPENWEATHER_API_KEY=d... in it when starting work on a local system.

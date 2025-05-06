@@ -4,9 +4,9 @@
   "description": "working on branch",
   "main": "index.js",
   "scripts": {
-  "start": "node src/server.js",
-  "dev": "nodemon src/index.js",
-  "test": "jest"
+    "start": "node src/server.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",

@@ -56,8 +56,36 @@
 
 
 // src/index.js
+// const express = require('express');
+// const cors = require('cors');
+// require('dotenv').config();
+
+// const weatherRoutes = require('./routes/weatherRoutes');
+
+// const app = express();
+
+// // Middlewares
+// app.use(cors());
+// app.use(express.json());
+
+// // Routes
+// app.use('/weather', weatherRoutes);
+
+// // Test Route
+// app.get('/', (req, res) => {
+//   res.send('Weather Dashboard API is running 🚀');
+// });
+
+// module.exports = app;
+
+
+
+
+
+// src/index.js
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const weatherRoutes = require('./routes/weatherRoutes');
@@ -68,12 +96,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static frontend files
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
 // Routes
 app.use('/weather', weatherRoutes);
 
-// Test Route
+// Root route should send index.html
 app.get('/', (req, res) => {
-  res.send('Weather Dashboard API is running 🚀');
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 module.exports = app;
