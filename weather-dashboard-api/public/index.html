@@ -1,0 +1,66 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f3f4f6;
+    }
+    h1 {
+      color: #333;
+    }
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>🌤️ Weather Dashboard</h1>
+  <label for="city">Enter City Name:</label><br />
+  <input type="text" id="city" placeholder="e.g. London" />
+  <button onclick="getWeather()">Get Weather</button>
+
+  <div id="output" class="result"></div>
+
+  <script>
+    async function getWeather() {
+      const city = document.getElementById('city').value;
+      const output = document.getElementById('output');
+
+      output.innerHTML = 'Loading...';
+
+      try {
+        const res = await fetch(`/weather?city=${encodeURIComponent(city)}`);
+        const data = await res.json();
+
+        if (res.ok) {
+          output.innerHTML = `
+            <strong>City:</strong> ${data.city}<br />
+            <strong>Temperature:</strong> ${data.temperature}<br />
+            <strong>Humidity:</strong> ${data.humidity}<br />
+            <strong>Condition:</strong> ${data.description}
+          `;
+        } else {
+          output.innerHTML = `<span style="color:red;">Error: ${data.error || data.errors?.[0]?.msg}</span>`;
+        }
+      } catch (err) {
+        output.innerHTML = `<span style="color:red;">Something went wrong</span>`;
+      }
+    }
+  </script>
+</body>
+</html>

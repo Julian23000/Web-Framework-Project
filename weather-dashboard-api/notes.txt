@@ -1,0 +1,3 @@
+npm install express axios dotenv cors nodemon express-validator
+
+to install all modules
