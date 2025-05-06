@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Catalog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      max-width: 300px;
+    }
+    .product-card img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Product Catalog</h1>
+  <div id="product-list"></div>
+
+  <script>
+    async function fetchProducts() {
+      try {
+        const res = await fetch('http://localhost:3000/api/products');
+        const products = await res.json();
+
+        const list = document.getElementById('product-list');
+        list.innerHTML = '';
+
+        products.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'product-card';
+
+          card.innerHTML = `
+            <h2>${product.name}</h2>
+            <p><strong>Price:</strong> $${product.price}</p>
+            <p>${product.description}</p>
+            <img src="http://localhost:3000${product.imageUrl}" alt="${product.name}" />
+          `;
+
+          list.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Failed to fetch products:', err);
+      }
+    }
+
+    fetchProducts();
+  </script>
+</body>
+</html>
