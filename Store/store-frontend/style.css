@@ -1,3 +1,7 @@
+.verdana-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
   font-family: Arial, sans-serif;
   padding: 20px;
@@ -26,7 +30,7 @@ body {
 }
 
 .product-card {
-  border: 1px solid #ccc;
+  border: 1px solid #1d1d1d;
   padding: 16px;
   margin-bottom: 12px;
   border-radius: 8px;
