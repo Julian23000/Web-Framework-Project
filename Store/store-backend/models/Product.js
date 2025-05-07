@@ -11,11 +11,11 @@ const productSchema = new mongoose.Schema({
   },
   description: String,
   imageUrl: {
-    type: String, // URL to the image (hosted online or locally served)
+    type: String,
     required: false,
   },
   imageSourceUrl: {
-    type: String, // URL to the webpage where the image comes from
+    type: String,
     required: false,
   },
 });

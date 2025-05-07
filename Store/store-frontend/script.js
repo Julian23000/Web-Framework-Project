@@ -7,7 +7,6 @@ document.getElementById('productForm').addEventListener('submit', async function
     formData.append('image', imageFile);
   
     try {
-      // 1. Upload the image
       const uploadRes = await fetch('http://localhost:3000/api/products/upload', {
         method: 'POST',
         body: formData
@@ -19,7 +18,6 @@ document.getElementById('productForm').addEventListener('submit', async function
         return alert('Image upload failed');
       }
   
-      // 2. Send product data
       const product = {
         name: form.name.value,
         price: parseFloat(form.price.value),
