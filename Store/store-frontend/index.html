@@ -73,18 +73,21 @@
 
           card.innerHTML = `
             <div class="card h-100">
-              <img src="http://localhost:3000${product.imageUrl}" class="card-img-top" alt="Image of ${product.name}">
+              <a href="http://localhost:3000${product.imageUrl}" target="_blank" rel="noopener noreferrer">
+                <img src="http://localhost:3000${product.imageUrl}" class="card-img-top" alt="Image of ${product.name}">
+              </a>
               <div class="card-body">
-                <h5 class="card-title" tabindex="0">${product.name}</h5>
+                  <h5 class="card-title" tabindex="0">${product.name}</h5>
                 <p class="card-text" tabindex="0"><strong>Price:</strong> €${product.price}</p>
                 <p class="card-text" tabindex="0">${product.description}</p>
-                ${product.imageSourceUrl
-                  ? `<a href="${product.imageSourceUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary" aria-label="Visit ${product.name} source">Source</a>`
-                  : ''
-                }
-              </div>
-            </div>
-          `;
+      ${product.imageSourceUrl
+        ? `<a href="${product.imageSourceUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary" aria-label="Visit ${product.name} source">Source</a>`
+        : ''
+      }
+    </div>
+  </div>
+`;
+
 
           list.appendChild(card);
         });
