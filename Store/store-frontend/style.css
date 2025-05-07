@@ -1,0 +1,31 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .product-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    max-width: 300px;
+  }
+  
+.product-card img {
+  width: 100%;
+  height: 200px; /* or whatever height you prefer */
+  object-fit: cover; /* ensures the image fills the area without distortion */
+  border-radius: 4px;
+}
+
+  
+  a {
+    outline: none;
+  }
+  
+  a:focus {
+    outline: 2px solid #000;
+    outline-offset: 4px;
+  }
+  

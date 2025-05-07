@@ -4,26 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Catalog</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    .product-card {
-      border: 1px solid #ccc;
-      padding: 16px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-      max-width: 300px;
-    }
-    .product-card img {
-      max-width: 100%;
-      border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Product Catalog</h1>
+  <h1 tabindex="0">Product Catalog</h1>
   <div id="product-list"></div>
 
   <script>
@@ -40,10 +24,14 @@
           card.className = 'product-card';
 
           card.innerHTML = `
-            <h2>${product.name}</h2>
-            <p><strong>Price:</strong> $${product.price}</p>
-            <p>${product.description}</p>
-            <img src="http://localhost:3000${product.imageUrl}" alt="${product.name}" />
+            <h2 tabindex="0">${product.name}</h2>
+            <p tabindex="0"><strong>Price:</strong> €${product.price}</p>
+            <p tabindex="0">${product.description}</p>
+            ${product.imageSourceUrl
+              ? `<a href="${product.imageSourceUrl}" target="_blank" rel="noopener noreferrer" aria-label="Visit ${product.name} source">
+                  <img src="http://localhost:3000${product.imageUrl}" alt="Image of ${product.name}" />
+                </a>`
+              : `<img src="http://localhost:3000${product.imageUrl}" alt="Image of ${product.name}" />`}
           `;
 
           list.appendChild(card);

@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
     type: String, // URL to the image (hosted online or locally served)
     required: false,
   },
+  imageSourceUrl: {
+    type: String, // URL to the webpage where the image comes from
+    required: false,
+  },
 });
 
 module.exports = mongoose.model('Product', productSchema);
