@@ -1,3 +1,6 @@
+
+
+
 document.getElementById('productForm').addEventListener('submit', async function (e) {
     e.preventDefault();
   
