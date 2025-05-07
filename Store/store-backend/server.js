@@ -2,20 +2,22 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const path = require('path');
+const cors = require('cors');
 const productRoutes = require('./routes/productRoutes');
-const uploadRoutes = require('./routes/uploadRoutes'); // ✅ Add this
+const uploadRoutes = require('./routes/uploadRoutes');
 
 dotenv.config();
 const app = express();
 
+app.use(cors());
 app.use(express.json());
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, '../store-frontend')));
 
-// Routes
 app.use('/api/products', productRoutes);
-app.use('/api/products/upload', uploadRoutes); // ✅ Add this
+app.use('/api/products/upload', uploadRoutes);
 
-// DB connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
