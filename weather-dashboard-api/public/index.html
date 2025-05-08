@@ -1,4 +1,4 @@
-<!-- public/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
   
@@ -36,7 +36,7 @@
   </style>
   
 </head>
- <body> <!--style="font-family: Verdana, Geneva, Tahoma, sans-serif;"--> 
+ <body> 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"> 
     <div class="container-fluid"> 
     <a class="navbar-brand" href="#">Top navbar</a> 
@@ -45,13 +45,13 @@
     </button> 
       <div class="collapse navbar-collapse" id="navbarCollapse"> 
         <ul class="navbar-nav me-auto mb-2 mb-md-0"> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Test our API</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="../../store_index.html">Products</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">About Us</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Contact Us</a> </li>  
-          <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> 
-          <li class="nav-item"> <a class="nav-link disabled" aria-disabled="true">Disabled</a> </li> 
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index.html">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#test-api">Test our API</a> </li> 
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="http://localhost:5000/">Products</a> </li> 
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#about">About Us</a> </li> 
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#contact">Contact Us</a> </li>  
+          <!-- <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> 
+          <li class="nav-item"> <a class="nav-link disabled" aria-disabled="true">Disabled</a> </li>  -->
         </ul> 
       </div> 
     </div> 
@@ -59,12 +59,81 @@
   
 
 
-  <h1>🌤️ Weather Dashboard</h1>
+  <h1 id="test-api">🌤️ Weather Dashboard</h1>
   <label for="city">Enter City Name:</label><br />
   <input type="text" id="city" placeholder="e.g. London" />
   <button onclick="getWeather()">Get Weather</button>
 
   <div id="output" class="result"></div>
+
+
+  <div class="container my-5">
+    <!-- Introduction -->
+    <div class="mb-5">
+      <h2>About This API</h2>
+      <p>
+        This project uses the OpenWeatherMap API to fetch real-time weather data.
+        You can get temperature, humidity, and general weather conditions for any city.
+        Our own REST API formats the data in a clean JSON structure.
+      </p>
+    </div>
+
+    <!-- How to Use -->
+    <div class="mb-5">
+      <h2>How to Use</h2>
+      <p>You can make a GET request to the following endpoint:</p>
+      <pre><code>GET http://localhost:5000/weather?city=London</code></pre>
+
+      <p><strong>Sample Response:</strong></p>
+      <pre>
+        <code>
+          {
+          "city": "London",
+          "temperature": "15°C",
+          "humidity": "82%",
+          "description": "light rain"
+          }
+        </code>
+      </pre>
+    </div>
+
+      <!-- About Us -->
+<div class="container">
+  <div class="mb-5" id="about">
+    <h2>About Us</h2>
+    <p>
+      We are a team of passionate web developers currently studying backend web development.
+      This project was built as part of our course to demonstrate our skills with Node.js,
+      APIs, and full-stack web architecture.
+    </p>
+    <ul>
+      <li><strong>Nikhil Verma</strong> – Backend and API Integration</li>
+      <li><strong>Julian Hack</strong> – Frontend and Accessibility</li>
+    </ul>
+  </div>
+  </div>
+  
+  <!-- Contact -->
+  <div class="container pb-5">
+  <div class="mb-5" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have feedback or would like to reach out, feel free to contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:nikhil@example.com">nikhil@example.com</a></li>
+      <li>Email: <a href="mailto:julian@example.com">julian@example.com</a></li>
+      <li>GitHub: <a href="https://github.com/your-repo" target="_blank">Our GitHub Repo</a></li>
+    </ul>
+  </div>
+  </div>
+   
+  <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+    <small>
+      Created by Nikhil Verma & Julian Hack — 
+      <a href="#about" class="text-warning text-decoration-none">About</a> | 
+      <a href="#contact" class="text-warning text-decoration-none">Contact</a> | 
+      <a href="#" class="text-warning text-decoration-none">GitHub</a>
+    </small>
+  </footer>
 
 
   <script>
