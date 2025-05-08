@@ -21,7 +21,7 @@
   <body style="font-family: Noto;"> 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"> 
       <div class="container-fluid"> 
-      <a class="navbar-brand" href="#">Top navbar</a> 
+      <a class="navbar-brand" href="https://web-framework-project.onrender.com">CW-API</a> 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> 
         <span class="navbar-toggler-icon"></span> 
       </button> 
@@ -29,7 +29,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-md-0">  
           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://web-framework-project.onrender.com">Home</a> </li>
           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://web-framework-project.onrender.com/#test-api">Test our API</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Products</a> </li> 
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://team-04-product-api.onrender.com">Products</a> </li> 
           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://web-framework-project.onrender.com/#about">About Us</a> </li> 
           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://web-framework-project.onrender.com/#contact">Contact Us</a> </li>  
         </ul> 
@@ -58,36 +58,19 @@
     </div>
   </main>
 
-  <footer class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md">
-        <small class="d-block mb-3 text-body-secondary">© 2017-2025</small>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-      <div class="col-6 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
-          <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
-        </ul>
-      </div>
-    </div>
+  <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+    <small>
+      Created by Nikhil Verma & Julian Hack — 
+      <a href="#about" class="text-warning text-decoration-none">About</a> | 
+      <a href="#contact" class="text-warning text-decoration-none">Contact</a> | 
+      <a href="https://github.com/Julian23000/Web-Framework-Project" class="text-warning text-decoration-none">GitHub</a>
+    </small>
   </footer>
 
   <script>
     async function fetchProducts() {
       try {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch('https://team-04-product-api.onrender.com/api/products');
         const products = await res.json();
 
         const list = document.getElementById('product-list');
@@ -99,8 +82,8 @@
 
           card.innerHTML = `
             <div class="card h-100">
-              <a href="http://localhost:5000${product.imageUrl}" target="_blank" rel="noopener noreferrer">
-                <img src="http://localhost:5000${product.imageUrl}" class="card-img-top" alt="Image of ${product.name}">
+              <a href="https://team-04-product-api.onrender.com${product.imageUrl}" target="_blank" rel="noopener noreferrer">
+                <img src="https://team-04-product-api.onrender.com${product.imageUrl}" class="card-img-top" alt="Image of ${product.name}">
               </a>
               <div class="card-body">
                   <h5 class="card-title" tabindex="0">${product.name}</h5>
