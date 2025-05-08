@@ -1,15 +1,4 @@
 
-// const express = require('express');
-// const router = express.Router();
-// const { getWeather } = require('../controllers/weatherController');
-
-// // GET /weather?city=London
-// router.get('/', getWeather);
-
-// module.exports = router;
-
-
-
 const express = require('express');
 const router = express.Router();
 const { getWeather } = require('../controllers/weatherController');

@@ -7,3 +7,20 @@ Remember to add env and OPENWEATHER_API_KEY=d... in it when starting work on a l
 netstat -ano | findstr :5000
 
 taskkill /PID 12345 /F
+
+npm install express express-handlebars
+
+
+/views
+  /layouts
+    main.handlebars       ← layout wrapper
+  /partials
+    header.handlebars
+    footer.handlebars
+  home.handlebars         ← your weather page
+  products.handlebars     ← your store page
+
+
+
+npm install mongoose
+npm install multer

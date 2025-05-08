@@ -10,7 +10,7 @@ document.getElementById('productForm').addEventListener('submit', async function
     formData.append('image', imageFile);
   
     try {
-      const uploadRes = await fetch('http://localhost:3000/api/products/upload', {
+      const uploadRes = await fetch('http://localhost:5000/api/products/upload', {
         method: 'POST',
         body: formData
       });
@@ -28,7 +28,7 @@ document.getElementById('productForm').addEventListener('submit', async function
         imageUrl: uploadData.imageUrl
       };
   
-      const productRes = await fetch('http://localhost:3000/api/products', {
+      const productRes = await fetch('http://localhost:5000/api/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
