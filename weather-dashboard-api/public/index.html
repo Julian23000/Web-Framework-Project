@@ -1,25 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather Dashboard API</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: Noto, sans-serif;
+      font-family: 'Noto Sans', sans-serif;
       background: #f3f4f6;
-    }
-    h1 {
-      color: #333;
     }
     input, button {
       padding: 8px;
@@ -33,114 +27,111 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
   </style>
-  
 </head>
 
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
- <body style="font-family: Noto sans;"> 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4"> 
-    <div class="container-fluid"> 
-    <a class="navbar-brand" href="https://web-framework-project.onrender.com/">CW-API</a> 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> 
-      <span class="navbar-toggler-icon"></span> 
-    </button> 
-      <div class="collapse navbar-collapse" id="navbarCollapse"> 
-        <ul class="navbar-nav me-auto mb-2 mb-md-0"> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="index.html">Home</a> </li>
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#test-api">Test our API</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="https://team-04-product-api.onrender.com">Products</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#about">About Us</a> </li> 
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#contact">Contact Us</a> </li>  
-        </ul> 
-      </div> 
-    </div> 
-  </nav>
-  
-
-
-  <h1 id="test-api">🌤️ Weather Dashboard</h1>
-  <label for="city">Enter City Name:</label><br />
-  <input type="text" id="city" placeholder="e.g. London" />
-  <button onclick="getWeather()">Get Weather</button>
-
-  <div id="output" class="result"></div>
-
-
-  <div class="container my-5">
-    <!-- Introduction -->
-    <div class="mb-5">
-      <h2>About This API</h2>
-      <p>
-        This project uses the OpenWeatherMap API to fetch real-time weather data.
-        You can get temperature, humidity, and general weather conditions for any city.
-        Our own REST API formats the data in a clean JSON structure.
-      </p>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">CW-API</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#test-api">Test our API</a></li>
+          <li class="nav-item"><a class="nav-link active" href="https://team-04-product-api.onrender.com">Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- How to Use -->
-    <div class="mb-5">
-      <h2>How to Use</h2>
+  <!-- Main Content -->
+  <main id="main-content" class="container">
+    <section aria-labelledby="weather-dashboard">
+      <h1 id="test-api">🌤️ <span id="weather-dashboard">Weather Dashboard</span></h1>
+
+      <form onsubmit="event.preventDefault(); getWeather();" aria-label="Weather Search">
+        <label for="city">Enter City Name:</label><br />
+        <input type="text" id="city" name="city" placeholder="e.g. London" class="form-control" />
+        <button class="btn btn-primary mt-2" id="getWeather">Get Weather</button>
+      </form>
+
+      <!-- ARIA live region for output -->
+      <div id="output" class="result mt-3" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <section class="my-5" aria-labelledby="about-api">
+      <h2 id="about-api">About This API</h2>
+      <p>This project uses the OpenWeatherMap API to fetch real-time weather data. You can get temperature, humidity, and general weather conditions for any city. Our own REST API formats the data in a clean JSON structure.</p>
+    </section>
+
+    <section class="mb-5" aria-labelledby="how-to-use">
+      <h2 id="how-to-use">How to Use</h2>
       <p>You can make a GET request to the following endpoint:</p>
       <pre><code>GET https://web-framework-project.onrender.com/weather?city=London</code></pre>
 
       <p><strong>Sample Response:</strong></p>
-      <pre>
-        <code>
-          {
-          "city": "London",
-          "temperature": "15°C",
-          "humidity": "82%",
-          "description": "light rain"
-          }
-        </code>
-      </pre>
-    </div>
+      <pre><code>{
+  "city": "London",
+  "temperature": "15°C",
+  "humidity": "82%",
+  "description": "light rain"
+}</code></pre>
+    </section>
 
-      <!-- About Us -->
-<div class="container">
-  <div class="mb-5" id="about">
-    <h2>About Us</h2>
-    <p>
-      We are a team of passionate web developers currently studying backend web development.
-      This project was built as part of our course to demonstrate our skills with Node.js,
-      APIs, and full-stack web architecture.
-    </p>
-    <ul>
-      <li><strong>Nikhil Verma</strong> – Backend and API Integration</li>
-      <li><strong>Julian Hack</strong> – Frontend and Accessibility</li>
-    </ul>
-  </div>
-  </div>
-  
-  <!-- Contact -->
-  <div class="container pb-5">
-  <div class="mb-5" id="contact">
-    <h2>Contact Us</h2>
-    <p>If you have feedback or would like to reach out, feel free to contact us:</p>
-    <ul>
-      <li>Email: <a href="mailto:nikhil23001@student.hamk.fi">nikhil23001@student.hamk.fi</a></li>
-      <li>Email: <a href="mailto:julian23000@student.hamk.fi">julian23000@student.hamk.fi</a></li>
-      <li>GitHub: <a href="https://github.com/Julian23000/Web-Framework-Project" target="_blank">Our GitHub Repo</a></li>
-    </ul>
-  </div>
-  </div>
-   
-  <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+    <section class="mb-5" id="about" aria-labelledby="about-section">
+      <h2 id="about-section">About Us</h2>
+      <p>We are a team of passionate web developers currently studying backend web development. This project was built as part of our course to demonstrate our skills with Node.js, APIs, and full-stack web architecture.</p>
+      <ul>
+        <li><strong>Nikhil Verma</strong> – Backend and API Integration</li>
+        <li><strong>Julian Hack</strong> – Frontend and Accessibility</li>
+      </ul>
+    </section>
+
+    <section class="mb-5" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Us</h2>
+      <p>If you have feedback or would like to reach out, feel free to contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:nikhil23001@student.hamk.fi">nikhil23001@student.hamk.fi</a></li>
+        <li>Email: <a href="mailto:julian23000@student.hamk.fi">julian23000@student.hamk.fi</a></li>
+        <li>GitHub: <a href="https://github.com/Julian23000/Web-Framework-Project" target="_blank">Our GitHub Repo</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3">
     <small>
-      Created by Nikhil Verma & Julian Hack — 
-      <a href="#about" class="text-warning text-decoration-none">About</a> | 
-      <a href="#contact" class="text-warning text-decoration-none">Contact</a> | 
+      Created by Nikhil Verma & Julian Hack —
+      <a href="#about" class="text-warning text-decoration-none">About</a> |
+      <a href="#contact" class="text-warning text-decoration-none">Contact</a> |
       <a href="https://github.com/Julian23000/Web-Framework-Project" class="text-warning text-decoration-none">GitHub</a>
     </small>
   </footer>
-
 
   <script>
     async function getWeather() {
       const city = document.getElementById('city').value;
       const output = document.getElementById('output');
-
       output.innerHTML = 'Loading...';
 
       try {
@@ -162,7 +153,7 @@
       }
     }
   </script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
