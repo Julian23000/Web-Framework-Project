@@ -68,12 +68,12 @@
   <!-- Main Content -->
   <main id="main-content" class="container">
     <section aria-labelledby="weather-dashboard">
-      <h1 id="test-api">🌤️ <span id="weather-dashboard">Weather Dashboard</span></h1>
+      <h1 id="test-api" tabindex="0">🌤️ <span id="weather-dashboard">Weather Dashboard</span></h1>
 
       <form onsubmit="event.preventDefault(); getWeather();" aria-label="Weather Search">
         <label for="city">Enter City Name:</label><br />
         <input type="text" id="city" name="city" placeholder="e.g. London" class="form-control" />
-        <button class="btn btn-primary mt-2" id="getWeather">Get Weather</button>
+        <button class="btn btn-primary mt-2" id="getWeather" onclick="getWeather()">Get Weather</button>
       </form>
 
       <!-- ARIA live region for output -->
@@ -81,17 +81,17 @@
     </section>
 
     <section class="my-5" aria-labelledby="about-api">
-      <h2 id="about-api">About This API</h2>
-      <p>This project uses the OpenWeatherMap API to fetch real-time weather data. You can get temperature, humidity, and general weather conditions for any city. Our own REST API formats the data in a clean JSON structure.</p>
+      <h2 id="about-api" tabindex="0">About This API</h2>
+      <p tabindex="0">This project uses the OpenWeatherMap API to fetch real-time weather data. You can get temperature, humidity, and general weather conditions for any city. Our own REST API formats the data in a clean JSON structure.</p>
     </section>
 
     <section class="mb-5" aria-labelledby="how-to-use">
-      <h2 id="how-to-use">How to Use</h2>
-      <p>You can make a GET request to the following endpoint:</p>
-      <pre><code>GET https://web-framework-project.onrender.com/weather?city=London</code></pre>
+      <h2 id="how-to-use" tabindex="0">How to Use</h2>
+      <p tabindex="0">You can make a GET request to the following endpoint:</p>
+      <pre><code tabindex="0">GET https://web-framework-project.onrender.com/weather?city=London</code></pre>
 
-      <p><strong>Sample Response:</strong></p>
-      <pre><code>{
+      <p tabindex="0"><strong>Sample Response:</strong></p>
+      <pre><code tabindex="0">{
   "city": "London",
   "temperature": "15°C",
   "humidity": "82%",
@@ -100,17 +100,17 @@
     </section>
 
     <section class="mb-5" id="about" aria-labelledby="about-section">
-      <h2 id="about-section">About Us</h2>
-      <p>We are a team of passionate web developers currently studying backend web development. This project was built as part of our course to demonstrate our skills with Node.js, APIs, and full-stack web architecture.</p>
+      <h2 id="about-section" tabindex="0">About Us</h2>
+      <p tabindex="0">We are a team of passionate web developers currently studying backend web development. This project was built as part of our course to demonstrate our skills with Node.js, APIs, and full-stack web architecture.</p>
       <ul>
-        <li><strong>Nikhil Verma</strong> – Backend and API Integration</li>
-        <li><strong>Julian Hack</strong> – Frontend and Accessibility</li>
+        <li tabindex="0"><strong>Nikhil Verma</strong> – Backend and API Integration</li>
+        <li tabindex="0"><strong>Julian Hack</strong> – Frontend and Accessibility</li>
       </ul>
     </section>
 
     <section class="mb-5" id="contact" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact Us</h2>
-      <p>If you have feedback or would like to reach out, feel free to contact us:</p>
+      <h2 id="contact-heading" tabindex="0">Contact Us</h2>
+      <p tabindex="0">If you have feedback or would like to reach out, feel free to contact us:</p>
       <ul>
         <li>Email: <a href="mailto:nikhil23001@student.hamk.fi">nikhil23001@student.hamk.fi</a></li>
         <li>Email: <a href="mailto:julian23000@student.hamk.fi">julian23000@student.hamk.fi</a></li>
@@ -119,8 +119,8 @@
     </section>
   </main>
 
-  <footer class="bg-dark text-white text-center py-3">
-    <small>
+  <footer class="bg-dark text-white text-center py-3" >
+    <small tabindex="0">
       Created by Nikhil Verma & Julian Hack —
       <a href="#about" class="text-warning text-decoration-none">About</a> |
       <a href="#contact" class="text-warning text-decoration-none">Contact</a> |
