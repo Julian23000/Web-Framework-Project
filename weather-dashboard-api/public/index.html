@@ -95,25 +95,13 @@
       </script>
       <h1 id="test-api" tabindex="0">🌤️ <span id="weather-dashboard">Weather Dashboard</span></h1>
 
-      <form onsubmit="event.preventDefault(); getWeather();" aria-label="Weather Search">
-        <label for="city">Enter City Name:</label><br />
-        <input type="text" id="city" name="city" placeholder="e.g. London" class="form-control" />
-        <button type="submit" class="btn btn-primary mt-2" id="getWeather">Get Weather</button>
-      </form>
+      <label for="city">Enter City Name:</label><br />
+      <input type="text" id="city" name="city" placeholder="e.g. London" />
+      <button onclick="getWeather()" class="btn btn-secondary mt-2" tabindex="0">Get Weather</button>
 
       <!-- ARIA live region for output -->
-      <div id="output" class="result mt-3" aria-live="polite" aria-atomic="true"></div>
+      <div id="output" class="result mt-3" aria-live="polite" aria-atomic="true" tabindex="0"></div>
     </section>
-
-
-<!--  -->
-    <h1 id="test-api">🌤️ Weather Dashboard</h1>
-    <label for="city">Enter City Name:</label><br />
-    <input type="text" id="city" placeholder="e.g. London" />
-    <button onclick="getWeather()">Get Weather</button>
-  
-    <div id="output" class="result"></div>
-<!--  -->
 
 
     <section class="my-5" aria-labelledby="about-api">
