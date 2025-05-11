@@ -68,6 +68,31 @@
   <!-- Main Content -->
   <main id="main-content" class="container">
     <section aria-labelledby="weather-dashboard">
+      <script>
+        async function getWeather() {
+          const city = document.getElementById('city').value;
+          const output = document.getElementById('output');
+          output.innerHTML = 'Loading...';
+    
+          try {
+            const res = await fetch(`/weather?city=${encodeURIComponent(city)}`);
+            const data = await res.json();
+    
+            if (res.ok) {
+              output.innerHTML = `
+                <strong>City:</strong> ${data.city}<br />
+                <strong>Temperature:</strong> ${data.temperature}<br />
+                <strong>Humidity:</strong> ${data.humidity}<br />
+                <strong>Condition:</strong> ${data.description}
+              `;
+            } else {
+              output.innerHTML = `<span style="color:red;">Error: ${data.error || data.errors?.[0]?.msg}</span>`;
+            }
+          } catch (err) {
+            output.innerHTML = `<span style="color:red;">Something went wrong</span>`;
+          }
+        }
+      </script>
       <h1 id="test-api" tabindex="0">🌤️ <span id="weather-dashboard">Weather Dashboard</span></h1>
 
       <form onsubmit="event.preventDefault(); getWeather();" aria-label="Weather Search">
@@ -102,12 +127,16 @@
       <pre><code tabindex="0">GET https://web-framework-project.onrender.com/weather?city=London</code></pre>
 
       <p tabindex="0"><strong>Sample Response:</strong></p>
-      <pre><code tabindex="0">{
-  "city": "London",
-  "temperature": "15°C",
-  "humidity": "82%",
-  "description": "light rain"
-}</code></pre>
+      <pre>
+        <code tabindex="0">
+          {
+            "city": "London",
+            "temperature": "15°C",
+            "humidity": "82%",
+            "description": "light rain"
+          }
+        </code>
+      </pre>
     </section>
 
     <section class="mb-5" id="about" aria-labelledby="about-section">
@@ -139,31 +168,7 @@
     </small>
   </footer>
 
-  <script>
-    async function getWeather() {
-      const city = document.getElementById('city').value;
-      const output = document.getElementById('output');
-      output.innerHTML = 'Loading...';
-
-      try {
-        const res = await fetch(`/weather?city=${encodeURIComponent(city)}`);
-        const data = await res.json();
-
-        if (res.ok) {
-          output.innerHTML = `
-            <strong>City:</strong> ${data.city}<br />
-            <strong>Temperature:</strong> ${data.temperature}<br />
-            <strong>Humidity:</strong> ${data.humidity}<br />
-            <strong>Condition:</strong> ${data.description}
-          `;
-        } else {
-          output.innerHTML = `<span style="color:red;">Error: ${data.error || data.errors?.[0]?.msg}</span>`;
-        }
-      } catch (err) {
-        output.innerHTML = `<span style="color:red;">Something went wrong</span>`;
-      }
-    }
-  </script>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
