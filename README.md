@@ -12,6 +12,10 @@
 We will use an open API to get weather data then customize it to our needs. User can retrieve weather information by typing the city name. The application gets realtime data from **OpenWeatherMap API** and formats it into a clean and readable JSON structure.
 The project will also have a **frontpage** to guide user on how to use the API and live testing of the API. The project will be developed in compliance with WCAG guidelines so that the the code and webpage is accessible. We will also make a product page where the user can buy products related to temprature measuring to put in/around their surroundings. The product page will have products API which can perform CRUD to add delete and update products on the store page. 
 
+## ♿ Accessibility Considerations
+We tested with NVDA and used WAVE to find problems. We added things like a "Skip to main content" link, semantic HTML tags, and focus styles for keyboard users. We didn’t use ARIA roles because native HTML was enough for what we needed. Now, the site works using screen readers or keyboard navigation.
+
+
 ## 💡 Features
 - REST API to get weather data by city name (like temprature, humidity etc.)
 - Integration with OpenWeatherMap API
